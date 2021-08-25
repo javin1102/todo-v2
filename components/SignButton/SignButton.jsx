@@ -6,7 +6,13 @@ const SignButton = (props) => {
       {!session && (
         <>
           Not signed in <br />
-          <button onClick={() => signIn("google")}>Sign in</button>
+          <button
+            onClick={async () => {
+              await signIn("google");
+            }}
+          >
+            Sign in
+          </button>
         </>
       )}
       {session && (

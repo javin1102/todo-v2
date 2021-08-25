@@ -1,27 +1,25 @@
 {
   "name": "todo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-server": "npm start --prefix server",
-    "watch-client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run watch-server\" \"npm run watch-client\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/javin1102/todo-v2.git"
+  "dependencies": {
+    "mongodb": "^4.1.1",
+    "mongoose": "^6.0.0",
+    "mongoose-findorcreate": "^3.0.0",
+    "next": "11.1.0",
+    "next-auth": "^3.29.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-google-login": "^5.2.2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/javin1102/todo-v2/issues"
-  },
-  "homepage": "https://github.com/javin1102/todo-v2#readme",
   "devDependencies": {
-    "concurrently": "^6.2.1",
-    "nodemon": "^2.0.12"
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0"
   }
 }
