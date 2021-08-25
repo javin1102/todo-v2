@@ -1,0 +1,27 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-server": "npm start --prefix server",
+    "watch-client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run watch-server\" \"npm run watch-client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javin1102/todo-v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javin1102/todo-v2/issues"
+  },
+  "homepage": "https://github.com/javin1102/todo-v2#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12"
+  }
+}
