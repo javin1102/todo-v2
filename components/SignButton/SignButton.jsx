@@ -1,11 +1,11 @@
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession, getSession } from "next-auth/client";
 const SignButton = (props) => {
   const [session, loading] = useSession();
   return (
     <>
       {!session && (
         <>
-          Not signed in <br />
+          <h3>Not Signed In</h3>
           <button
             onClick={async () => {
               await signIn("google");
@@ -17,7 +17,8 @@ const SignButton = (props) => {
       )}
       {session && (
         <>
-          Signed in as {session.user.email} <br />
+          <h3>{session.id}</h3>
+
           <button onClick={() => signOut()}>Sign out</button>
         </>
       )}
