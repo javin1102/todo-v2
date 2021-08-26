@@ -13,9 +13,6 @@ const Main = () => {
   useEffect(async () => {
     await getRequest();
     firstLoad = false;
-    return () => {
-      console.log("hi");
-    };
   }, []);
 
   useEffect(() => {

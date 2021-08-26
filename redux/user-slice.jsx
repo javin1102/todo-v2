@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   googleId: "",
   todoList: [],
+  displayType: "all",
 };
 const userSlice = createSlice({
   name: "user",
@@ -30,6 +31,9 @@ const userSlice = createSlice({
     },
     setTodoList: (state, action) => {
       state.todoList = action.payload.todoList;
+    },
+    setDisplayType: (state, action) => {
+      state.displayType = action.payload.displayType;
     },
   },
 });

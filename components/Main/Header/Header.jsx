@@ -2,7 +2,6 @@ import styles from "./Header.module.css";
 import sun from "../../../public/images/icon-sun.svg";
 import Image from "next/image";
 import ClipLoader from "react-spinners/ClipLoader";
-import moduleName from "../../../redux/message-slice";
 import { useSelector } from "react-redux";
 const Header = () => {
   const { isLoading } = useSelector((state) => state.message);
@@ -12,6 +11,11 @@ const Header = () => {
         <div className={styles.left}>
           <h1 className={styles["heading-1"]}>TODO</h1>
           {isLoading && <ClipLoader />}
+          {!isLoading && (
+            <h3 style={{ color: "hsl(234, 39%, 85%)", fontSize: ".8rem" }}>
+              saved
+            </h3>
+          )}
         </div>
 
         <Image

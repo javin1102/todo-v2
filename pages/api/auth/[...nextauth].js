@@ -21,7 +21,10 @@ export default NextAuth({
         const userCollection = db.collection("users");
         const user = await userCollection.findOne({ googleId: profile.id });
         if (!user) {
-          await userCollection.insertOne({ googleId: profile.id });
+          await userCollection.insertOne({
+            googleId: profile.id,
+            todoList: [],
+          });
         }
         client.close();
 
