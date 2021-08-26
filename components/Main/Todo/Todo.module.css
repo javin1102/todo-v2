@@ -1,0 +1,10 @@
+.placeholder {
+  width: 100%;
+  background-color: hsl(237, 14%, 26%);
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+}

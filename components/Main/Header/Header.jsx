@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import sun from "../../public/images/icon-sun.svg";
+import sun from "../../../public/images/icon-sun.svg";
 import Image from "next/image";
 const Header = () => {
   return (

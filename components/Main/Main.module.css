@@ -1,0 +1,16 @@
+.content-box-container {
+  width: 100%;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  /* background-color: brown; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 8rem;
+  padding: 0 2rem;
+}
+
+.content-box-container > *:not(:last-child) {
+  margin-bottom: 1.2rem;
+}

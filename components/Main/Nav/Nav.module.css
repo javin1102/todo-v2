@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+
+  padding: 2rem 3rem;
+  position: fixed;
+  top: 0;
+  right: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.h3 {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.button {
+  background-color: hsl(237, 21%, 48%);
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  border: none;
+  padding: 0rem 0.7rem;
+  color: white;
+  cursor: pointer;
+  height: 3rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .container {
+    padding: 1rem 0rem;
+
+    width: fit-content;
+    right: 3rem;
+  }
+  .h3 {
+    margin: 0;
+    margin-right: 2rem;
+    font-size: 1rem;
+  }
+  .button {
+    font-size: 0.8rem;
+  }
+}
