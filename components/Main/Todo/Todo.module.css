@@ -1,10 +1,44 @@
 .placeholder {
   width: 100%;
-  background-color: hsl(237, 14%, 26%);
+  background-color: hsl(235, 24%, 19%);
   border-radius: 0.2rem;
   outline: none;
   border: none;
   padding: 0.8rem 1rem;
   font-family: "Josefin Sans", sans-serif;
   color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.list .placeholder:not(:last-child) {
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.315);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.check-circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 6px 5px;
+  margin-right: 1rem;
+  background-color: transparent;
+}
+
+.check-circle-bg {
+  background: linear-gradient(
+    to bottom right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  ) !important;
+}
+
+.cross {
+  margin-left: auto;
+  cursor: pointer;
 }

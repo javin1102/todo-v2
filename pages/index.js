@@ -5,6 +5,7 @@ import Signin from "../components/Signin/Signin";
 import { useSelector } from "react-redux";
 import { useSession } from "next-auth/client";
 import Main from "../components/Main/Main";
+
 export default function Home() {
   const [session, loading] = useSession();
   const { googleId } = useSelector((state) => state.user);
