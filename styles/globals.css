@@ -12,9 +12,10 @@ body {
 
 .body-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: hsl(235, 21%, 11%);
   position: relative;
+  overflow-x: hidden;
 }
 .bg-image {
   position: relative;

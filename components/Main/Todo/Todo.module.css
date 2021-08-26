@@ -1,7 +1,7 @@
 .placeholder {
   width: 100%;
   background-color: hsl(235, 24%, 19%);
-  border-radius: 0.2rem;
+  /* border-radius: 0.2rem; */
   outline: none;
   border: none;
   padding: 0.8rem 1rem;
@@ -15,9 +15,16 @@
 }
 
 .list .placeholder:not(:last-child) {
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.315);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.11);
+}
+.list .placeholder:first-child {
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+}
+
+.list .placeholder:last-child {
+  border-bottom-left-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
 }
 
 .check-circle {
