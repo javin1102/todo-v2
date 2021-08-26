@@ -39,6 +39,10 @@ const userSlice = createSlice({
     setThemeType: (state, action) => {
       state.theme = action.payload.theme;
     },
+    removeAllCompleted: (state, action) => {
+      const newTodo = state.todoList.filter((todo) => !todo.completed);
+      state.todoList = newTodo;
+    },
   },
 });
 export const userAction = userSlice.actions;

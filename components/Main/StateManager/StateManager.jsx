@@ -24,18 +24,10 @@ const StateManager = () => {
   const onClickHandler = (value) => {
     dispatch(userAction.setDisplayType({ displayType: value }));
     addActiveStyle(value);
+  };
 
-    //count active todo list item on current state
-    let i = 0;
-    todoList.forEach((todo) => {
-      if (
-        (!todo.completed && value === "completed") ||
-        (todo.completed && value === "active")
-      )
-        return;
-      i++;
-      setActiveNumber(i);
-    });
+  const deleteAllCompletedHandler = () => {
+    dispatch(userAction.removeAllCompleted());
   };
 
   useEffect(() => {
@@ -45,6 +37,20 @@ const StateManager = () => {
   useEffect(() => {
     if (displayType === "all") setActiveNumber(todoList.length);
   }, [todoList]);
+
+  useEffect(() => {
+    if (displayType === "completed") {
+      const completedList = todoList.filter((todo) => todo.completed);
+      setActiveNumber(completedList.length);
+    }
+    if (displayType === "active") {
+      const activeList = todoList.filter((todo) => !todo.completed);
+      setActiveNumber(activeList.length);
+    }
+    if (displayType === "all") {
+      setActiveNumber(todoList.length);
+    }
+  }, [displayType, activeNumber, todoList]);
 
   const themeStyle =
     theme === "dark"
@@ -79,7 +85,10 @@ const StateManager = () => {
           Completed
         </span>
       </div>
-      <span style={{ cursor: "pointer", color: textColor }}>
+      <span
+        style={{ cursor: "pointer", color: textColor }}
+        onClick={deleteAllCompletedHandler}
+      >
         Clear Completed
       </span>
     </div>
