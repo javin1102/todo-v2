@@ -35,6 +35,7 @@
   padding: 6px 5px;
   margin-right: 1rem;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .check-circle-bg {
@@ -44,8 +45,23 @@
     hsl(280, 87%, 65%)
   ) !important;
 }
+.check-circle + p {
+  text-decoration: none;
+  color: white;
+}
 
+.check-circle-bg + p {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
+}
 .cross {
   margin-left: auto;
   cursor: pointer;
+}
+
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
 }
