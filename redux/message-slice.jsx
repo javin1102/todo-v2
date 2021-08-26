@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false,
 };
 const messageSlice = createSlice({
-  name: message,
+  name: "message",
   initialState,
   reducers: {
     setLoading: (state, action) => {
@@ -13,3 +13,5 @@ const messageSlice = createSlice({
     },
   },
 });
+export const messageAction = messageSlice.actions;
+export default messageSlice;

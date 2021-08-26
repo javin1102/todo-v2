@@ -23,6 +23,7 @@ export default NextAuth({
         if (!user) {
           await userCollection.insertOne({ googleId: profile.id });
         }
+        client.close();
 
         return {
           name: profile.name,

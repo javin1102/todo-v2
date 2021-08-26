@@ -28,6 +28,9 @@ const userSlice = createSlice({
       state.todoList[selectedTodoIndex].completed =
         !state.todoList[selectedTodoIndex].completed;
     },
+    setTodoList: (state, action) => {
+      state.todoList = action.payload.todoList;
+    },
   },
 });
 export const userAction = userSlice.actions;
