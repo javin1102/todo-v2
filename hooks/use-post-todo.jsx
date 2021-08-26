@@ -4,24 +4,23 @@ import axios from "axios";
 import { useCallback } from "react";
 
 export const usePostTodo = () => {
-  const { todoList, googleId } = useSelector((state) => state.user);
+  const { todoList, googleId, theme } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const sendRequest = useCallback(async () => {
     try {
       dispatch(messageAction.setLoading({ isLoading: true }));
-      const data = JSON.stringify({ todoList, googleId });
+      const data = JSON.stringify({ todoList, googleId, theme });
       const response = await axios.post("/api/todo", data, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-      console.log(response.data);
     } catch (err) {
       console.error(err);
     }
 
     dispatch(messageAction.setLoading({ isLoading: false }));
-  }, [todoList]);
+  }, [todoList, theme]);
   return {
     sendRequest,
   };

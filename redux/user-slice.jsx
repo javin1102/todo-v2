@@ -3,6 +3,7 @@ const initialState = {
   googleId: "",
   todoList: [],
   displayType: "all",
+  theme: "dark",
 };
 const userSlice = createSlice({
   name: "user",
@@ -34,6 +35,9 @@ const userSlice = createSlice({
     },
     setDisplayType: (state, action) => {
       state.displayType = action.payload.displayType;
+    },
+    setThemeType: (state, action) => {
+      state.theme = action.payload.theme;
     },
   },
 });

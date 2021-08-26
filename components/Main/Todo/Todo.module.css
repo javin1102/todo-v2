@@ -1,6 +1,6 @@
 .placeholder {
   width: 100%;
-  background-color: hsl(235, 24%, 19%);
+
   /* border-radius: 0.2rem; */
   outline: none;
   border: none;
@@ -14,8 +14,20 @@
   position: relative;
 }
 
+.placeholder-bg-dark {
+  background-color: hsl(235, 24%, 19%);
+}
+
+.placeholder-bg-light {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.list {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .list .placeholder:not(:last-child) {
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.11);
+  border-bottom: 0.5px solid rgba(110, 110, 110, 0.288);
 }
 .list .placeholder:first-child {
   border-top-left-radius: 0.2rem;
@@ -31,7 +43,7 @@
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 1px solid hsl(234, 11%, 52%);
   padding: 6px 5px;
   margin-right: 1rem;
   background-color: transparent;
@@ -47,12 +59,11 @@
 }
 .check-circle + p {
   text-decoration: none;
-  color: white;
 }
 
 .check-circle-bg + p {
   text-decoration: line-through;
-  color: hsl(234, 11%, 52%);
+  color: hsl(234, 11%, 52%) !important;
 }
 .cross {
   margin-left: auto;

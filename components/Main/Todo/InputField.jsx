@@ -1,12 +1,13 @@
 import styles from "./Todo.module.css";
 import { userAction } from "../../../redux/user-slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 const InputField = () => {
   const [enteredTodoText, setEnteredTodoText] = useState("");
-
+  const { theme } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
   const onEnterHandler = (e) => {
     if (enteredTodoText === "") return;
     if (e.key === "Enter") {
@@ -20,14 +21,22 @@ const InputField = () => {
     }
   };
 
+  const themeStyle =
+    theme === "dark"
+      ? styles["placeholder-bg-dark"]
+      : styles["placeholder-bg-light"];
+
+  const textColor = theme === "dark" ? "white" : "hsl(235, 19%, 35%)";
+
   return (
     <input
       type="text"
       placeholder="Create a new todo"
-      className={styles.placeholder}
+      className={`${styles.placeholder} ${themeStyle}`}
       onKeyDown={onEnterHandler}
       onChange={(e) => setEnteredTodoText(e.currentTarget.value)}
       value={enteredTodoText}
+      style={{ color: textColor }}
     />
   );
 };

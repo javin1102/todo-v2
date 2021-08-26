@@ -11,8 +11,9 @@ export const useGetTodo = () => {
       dispatch(messageAction.setLoading({ isLoading: true }));
 
       const response = await axios.get(`/api/todo/${googleId}`);
-      console.log(response.data.todoList);
+
       dispatch(userAction.setTodoList({ todoList: response.data.todoList }));
+      dispatch(userAction.setThemeType({ theme: response.data.theme }));
     } catch (err) {
       console.error(err);
     }

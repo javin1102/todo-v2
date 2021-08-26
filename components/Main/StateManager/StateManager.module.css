@@ -1,6 +1,5 @@
 .placeholder {
   width: 100%;
-  background-color: hsl(235, 24%, 19%);
   border-radius: 0.2rem;
   outline: none;
   border: none;
@@ -11,7 +10,8 @@
   font-weight: 400;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .placeholder > *:not(:last-child) {
@@ -20,7 +20,20 @@
 
 .span {
   cursor: pointer;
+  color: white;
 }
 .span.active {
-  color: hsl(220, 98%, 61%);
+  color: hsl(220, 98%, 61%) !important;
+}
+
+.middle > *:not(:last-child) {
+  margin-right: 0.8rem;
+}
+
+.placeholder-bg-dark {
+  background-color: hsl(235, 24%, 19%);
+}
+
+.placeholder-bg-light {
+  background-color: hsl(0, 0%, 98%);
 }

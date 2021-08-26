@@ -14,3 +14,10 @@
 .content-box-container > *:not(:last-child) {
   margin-bottom: 1.6rem;
 }
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

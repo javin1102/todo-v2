@@ -1,15 +1,20 @@
 import Image from "next/image";
 import Head from "next/head";
 import DarkTopBG from "../public/images/bg-desktop-dark.jpg";
+import LightTopBG from "../public/images/bg-desktop-light.jpg";
 import Signin from "../components/Signin/Signin";
 import { useSelector } from "react-redux";
 import { useSession } from "next-auth/client";
 import Main from "../components/Main/Main";
-
+import ClipLoader from "react-spinners/ClipLoader";
 export default function Home() {
   const [session, loading] = useSession();
-  const { googleId } = useSelector((state) => state.user);
+  const { googleId, theme } = useSelector((state) => state.user);
+  const { isLoading } = useSelector((state) => state.message);
   const renderComponent = !session || !googleId ? <Signin /> : <Main />;
+  const backgroundImage = theme === "dark" ? DarkTopBG : LightTopBG;
+  const backgroundColor = theme === "dark" ? "dark-bg" : "light-bg";
+
   return (
     <>
       <Head>
@@ -26,10 +31,16 @@ export default function Home() {
         />
       </Head>
 
-      <div className="body-container">
+      <div className={`body-container ${backgroundColor}`}>
         <div className="bg-image">
-          <Image src={DarkTopBG} alt="Top BG" layout="fill" objectFit="cover" />
+          <Image
+            src={backgroundImage}
+            alt="Top BG"
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
+
         {!loading && renderComponent}
       </div>
     </>

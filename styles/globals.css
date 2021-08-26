@@ -13,11 +13,18 @@ body {
 .body-container {
   width: 100vw;
   min-height: 100vh;
-  background-color: hsl(235, 21%, 11%);
+
   position: relative;
   overflow-x: hidden;
 }
 .bg-image {
   position: relative;
   min-height: 20rem;
+}
+
+.dark-bg {
+  background-color: hsl(235, 21%, 11%);
+}
+.light-bg {
+  background-color: hsl(0, 0%, 98%);
 }
