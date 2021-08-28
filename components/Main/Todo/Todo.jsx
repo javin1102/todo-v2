@@ -26,5 +26,5 @@ const Todo = () => {
     </div>
   );
 };
-
+export async function getServerSideProps() {}
 export default Todo;

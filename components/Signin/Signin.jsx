@@ -9,7 +9,10 @@ const Signin = () => {
   const [session, loading] = useSession();
   const dispatch = useDispatch();
   useEffect(() => {
-    if (session) dispatch(userAction.setId({ googleId: session.id }));
+    if (session) {
+      dispatch(userAction.setId({ googleId: session.id }));
+      localStorage.setItem("g-auth", session.id);
+    }
   });
 
   return (

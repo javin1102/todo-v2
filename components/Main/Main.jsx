@@ -5,15 +5,17 @@ import Content from "./Todo/Content";
 import StateManager from "./StateManager/StateManager";
 import { usePostTodo } from "../../hooks/use-post-todo";
 import { useGetTodo } from "../../hooks/use-get-todo";
-import { useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 let firstLoad = true;
-const Main = () => {
-  const { sendRequest: postRequest } = usePostTodo();
-  const { sendRequest: getRequest } = useGetTodo();
+const Main = ({ firstLoad, todoList }) => {
   const { isLoading } = useSelector((state) => state.message);
   const { theme } = useSelector((state) => state.user);
+  const loadingColor = theme === "dark" ? "#ffffff" : "#000000";
+  const { sendRequest: postRequest } = usePostTodo();
+  const { sendRequest: getRequest } = useGetTodo();
+
   useEffect(async () => {
     await getRequest();
     firstLoad = false;
@@ -22,7 +24,7 @@ const Main = () => {
   useEffect(() => {
     if (!firstLoad) postRequest();
   }, [postRequest]);
-  const loadingColor = theme === "dark" ? "#ffffff" : "#000000";
+
   return (
     <>
       {isLoading && firstLoad ? (

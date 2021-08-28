@@ -10,7 +10,7 @@ export const usePostTodo = () => {
     try {
       dispatch(messageAction.setLoading({ isLoading: true }));
       const data = JSON.stringify({ todoList, googleId, theme });
-      const response = await axios.post("/api/todo", data, {
+      await axios.post("http://localhost:3000/api/todo", data, {
         headers: {
           "Content-Type": "application/json",
         },

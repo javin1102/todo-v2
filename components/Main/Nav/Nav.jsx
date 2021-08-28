@@ -3,15 +3,19 @@ import styles from "./Nav.module.css";
 import { userAction } from "../../../redux/user-slice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 const Nav = () => {
   const [session, loading] = useSession();
   const dispatch = useDispatch();
+  const router = useRouter();
   useEffect(() => {
     if (session) dispatch(userAction.setId({ googleId: session.id }));
   });
   const logoutHandler = () => {
     signOut();
     dispatch(userAction.reset());
+    localStorage.removeItem("g-auth");
+    router.push("/");
   };
 
   return (
