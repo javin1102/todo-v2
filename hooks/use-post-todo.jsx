@@ -2,13 +2,14 @@ import { messageAction } from "../redux/message-slice";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useCallback } from "react";
+import { getURL } from "next/dist/shared/lib/utils";
 
 export const usePostTodo = () => {
   const { todoList, googleId, theme } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const url =
     process.env.NODE_ENV === "production"
-      ? `${process.env.PROD}/api/todo`
+      ? `${getURL()}/api/todo`
       : "http://localhost:3000/api/todo";
   const sendRequest = useCallback(async () => {
     try {

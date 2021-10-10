@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useCallback } from "react";
 import { userAction } from "../redux/user-slice";
+import { getURL } from "next/dist/shared/lib/utils";
 export const useGetTodo = () => {
   const dispatch = useDispatch();
   const { googleId } = useSelector((state) => state.user);
   const url =
     process.env.NODE_ENV === "production"
-      ? `${process.env.PROD}/api/todo/${googleId}`
+      ? `${getURL()}/api/todo/${googleId}`
       : `http://localhost:3000/api/todo/${googleId}`;
   const sendRequest = useCallback(async () => {
     try {
