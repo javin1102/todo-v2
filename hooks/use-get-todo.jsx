@@ -15,7 +15,10 @@ export const useGetTodo = () => {
       dispatch(messageAction.setLoading({ isLoading: true }));
 
       const response = await axios.get(`${url}`, {
-        "Access-Control-Allow-Origin": "*",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
       });
 
       dispatch(userAction.setTodoList({ todoList: response.data.todoList }));
