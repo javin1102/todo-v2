@@ -8,7 +8,7 @@ export const usePostTodo = () => {
   const dispatch = useDispatch();
   const url =
     process.env.NODE_ENV === "production"
-      ? `https://todo-v2-phi.vercel.app/api/todo`
+      ? `${process.env.PROD}/api/todo`
       : "http://localhost:3000/api/todo";
   const sendRequest = useCallback(async () => {
     try {
