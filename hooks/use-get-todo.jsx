@@ -14,7 +14,9 @@ export const useGetTodo = () => {
     try {
       dispatch(messageAction.setLoading({ isLoading: true }));
 
-      const response = await axios.get(`${url}`);
+      const response = await axios.get(`${url}`, {
+        "Access-Control-Allow-Origin": "*",
+      });
 
       dispatch(userAction.setTodoList({ todoList: response.data.todoList }));
       dispatch(userAction.setThemeType({ theme: response.data.theme }));

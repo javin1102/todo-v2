@@ -17,6 +17,7 @@ export const usePostTodo = () => {
       await axios.post(`${url}`, data, {
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
       });
     } catch (err) {
