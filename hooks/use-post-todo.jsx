@@ -9,7 +9,7 @@ export const usePostTodo = () => {
   const dispatch = useDispatch();
   const url =
     process.env.NODE_ENV === "production"
-      ? `https://${process.env.NEXT_PUBLIC_PROD}/api/todo`
+      ? `${process.env.NEXT_PUBLIC_PROD}`
       : "http://localhost:3000/api/todo";
   const sendRequest = useCallback(async () => {
     try {
