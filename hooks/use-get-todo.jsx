@@ -8,7 +8,7 @@ export const useGetTodo = () => {
   const { googleId } = useSelector((state) => state.user);
   const url =
     process.env.NODE_ENV === "production"
-      ? `${process.env.PROD}/api/todo/${googleId}`
+      ? `https://todo-v2-phi.vercel.app/api/todo${googleId}`
       : `http://localhost:3000/api/todo/${googleId}`;
   const sendRequest = useCallback(async () => {
     try {
