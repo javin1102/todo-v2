@@ -9,7 +9,7 @@ export const useGetTodo = () => {
   const { googleId } = useSelector((state) => state.user);
   const url =
     process.env.NODE_ENV === "production"
-      ? `https://${process.env.PROD}/api/todo/${googleId}`
+      ? `https://${process.env.NEXT_PUBLIC_PROD}/api/todo/${googleId}`
       : `http://localhost:3000/api/todo/${googleId}`;
   const sendRequest = useCallback(async () => {
     try {
