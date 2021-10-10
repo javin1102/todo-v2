@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 let firstLoad = true;
-const Main = ({ firstLoad, todoList }) => {
+const Main = () => {
   const { isLoading } = useSelector((state) => state.message);
   const { theme } = useSelector((state) => state.user);
   const loadingColor = theme === "dark" ? "#ffffff" : "#000000";
