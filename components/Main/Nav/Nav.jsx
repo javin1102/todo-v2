@@ -8,9 +8,11 @@ const Nav = () => {
   const [session, loading] = useSession();
   const dispatch = useDispatch();
   const router = useRouter();
+
   useEffect(() => {
     if (session) dispatch(userAction.setId({ googleId: session.id }));
   });
+
   const logoutHandler = () => {
     signOut();
     dispatch(userAction.reset());

@@ -14,7 +14,9 @@ const Header = () => {
     const themeText = theme === "dark" ? "light" : "dark";
     dispatch(userAction.setThemeType({ theme: themeText }));
   };
+
   const themeImage = theme === "dark" ? sun : moon;
+
   return (
     <>
       <div className={styles["header-container"]}>

@@ -8,6 +8,7 @@ import { useGetTodo } from "../../hooks/use-get-todo";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+
 let firstLoad = true;
 const Main = ({ firstLoad, todoList }) => {
   const { isLoading } = useSelector((state) => state.message);
