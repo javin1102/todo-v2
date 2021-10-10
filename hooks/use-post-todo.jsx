@@ -2,7 +2,6 @@ import { messageAction } from "../redux/message-slice";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useCallback } from "react";
-import { getURL } from "next/dist/shared/lib/utils";
 
 export const usePostTodo = () => {
   const { todoList, googleId, theme } = useSelector((state) => state.user);

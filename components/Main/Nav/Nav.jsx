@@ -13,10 +13,10 @@ const Nav = () => {
     if (session) dispatch(userAction.setId({ googleId: session.id }));
   });
 
-  const logoutHandler = () => {
-    signOut();
+  const logoutHandler = async () => {
     dispatch(userAction.reset());
     localStorage.removeItem("g-auth");
+    await signOut();
     router.push("/");
   };
 
