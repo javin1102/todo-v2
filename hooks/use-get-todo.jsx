@@ -6,13 +6,13 @@ import { userAction } from "../redux/user-slice";
 export const useGetTodo = () => {
   const dispatch = useDispatch();
   const { googleId } = useSelector((state) => state.user);
+  const url =
+    process.env.NODE_ENV === "production" ? process.env.PROD : process.env.DEV;
   const sendRequest = useCallback(async () => {
     try {
       dispatch(messageAction.setLoading({ isLoading: true }));
 
-      const response = await axios.get(
-        `http://localhost:3000/api/todo/${googleId}`
-      );
+      const response = await axios.get(`${url}/api/todo/${googleId}`);
 
       dispatch(userAction.setTodoList({ todoList: response.data.todoList }));
       dispatch(userAction.setThemeType({ theme: response.data.theme }));
