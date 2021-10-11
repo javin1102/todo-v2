@@ -17,7 +17,6 @@ const Nav = () => {
     await signOut().then(() => {
       router.push("/");
       localStorage.removeItem("g-auth");
-      dispatch(userAction.reset());
     });
   };
 

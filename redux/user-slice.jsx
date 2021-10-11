@@ -13,6 +13,7 @@ const userSlice = createSlice({
     setId: (state, action) => {
       state.googleId = action.payload.googleId;
     },
+    resetId: (state, action) => (state.googleId = ""),
 
     addTodoList: (state, action) => {
       state.todoList.push(action.payload.todo);

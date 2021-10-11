@@ -8,7 +8,6 @@ const InputField = () => {
   const [enteredTodoText, setEnteredTodoText] = useState("");
   const { theme, todoList } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const { sendRequest: postRequest } = usePostTodo();
 
   const onEnterHandler = async (e) => {
     if (enteredTodoText === "") return;
@@ -22,10 +21,6 @@ const InputField = () => {
       setEnteredTodoText("");
     }
   };
-
-  // useEffect(async () => {
-  //   if (todoList.length > 0) await postRequest();
-  // }, [postRequest, todoList]);
 
   const themeStyle =
     theme === "dark"

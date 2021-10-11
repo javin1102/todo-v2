@@ -9,17 +9,12 @@ import { useEffect } from "react";
 const TodoList = (props) => {
   const dispatch = useDispatch();
   const { theme, todoList } = useSelector((state) => state.user);
-  const { sendRequest: postRequest } = usePostTodo();
 
   const completedListStyle = props.completed ? styles["check-circle-bg"] : "";
 
   const completedCheckStyle = props.completed
     ? styles["d-block"]
     : styles["d-none"];
-
-  // useEffect(async () => {
-  //   if (todoList.length > 0) await postRequest();
-  // }, [postRequest, todoList]);
 
   const onClickHandler = async () => {
     dispatch(userAction.setHasCompletedList({ id: props.id }));

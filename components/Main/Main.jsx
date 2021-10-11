@@ -12,18 +12,19 @@ import { useEffect } from "react";
 let firstLoad = true;
 const Main = () => {
   const { isLoading } = useSelector((state) => state.message);
-  const { theme } = useSelector((state) => state.user);
+  const { theme, googleId, todoList } = useSelector((state) => state.user);
   const loadingColor = theme === "dark" ? "#ffffff" : "#000000";
   const { sendRequest: getRequest } = useGetTodo();
   const { sendRequest: postRequest } = usePostTodo();
 
   useEffect(async () => {
-    getRequest().then(() => {
+    if (googleId) {
+      await getRequest();
       firstLoad = false;
-    });
+    }
   }, []);
   useEffect(async () => {
-    if (!firstLoad) await postRequest();
+    if (!firstLoad && googleId !== "") await postRequest();
   }, [postRequest]);
   return (
     <>

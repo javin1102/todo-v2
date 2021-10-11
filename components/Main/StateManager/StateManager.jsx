@@ -20,7 +20,7 @@ const StateManager = () => {
   const { displayType, theme, todoList } = useSelector((state) => state.user);
   const [activeNumber, setActiveNumber] = useState();
   const dispatch = useDispatch();
-  const { sendRequest: postRequest } = usePostTodo();
+
   const onClickHandler = (value) => {
     dispatch(userAction.setDisplayType({ displayType: value }));
     addActiveStyle(value);
@@ -37,10 +37,6 @@ const StateManager = () => {
   useEffect(() => {
     if (displayType === "all") setActiveNumber(todoList.length);
   }, [todoList]);
-
-  // useEffect(async () => {
-  //   if (todoList.length > 0) await postRequest();
-  // }, [postRequest, todoList]);
 
   useEffect(() => {
     if (displayType === "completed") {

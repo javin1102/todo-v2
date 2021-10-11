@@ -12,6 +12,7 @@ export const usePostTodo = () => {
       : "http://localhost:3000/api/todo";
   const sendRequest = useCallback(async () => {
     try {
+      console.log(todoList);
       dispatch(messageAction.setLoading({ isLoading: true }));
       const data = JSON.stringify({ todoList, googleId, theme });
       await axios.post(`${url}`, data, {
