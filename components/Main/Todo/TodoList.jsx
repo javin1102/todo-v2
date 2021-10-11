@@ -18,6 +18,7 @@ const TodoList = (props) => {
 
   const onClickHandler = () => {
     dispatch(userAction.setHasCompletedList({ id: props.id }));
+    await postRequest();
   };
 
   const onDeleteHandler = async () => {
