@@ -38,9 +38,9 @@ const StateManager = () => {
     if (displayType === "all") setActiveNumber(todoList.length);
   }, [todoList]);
 
-  useEffect(async () => {
-    if (todoList.length > 0) await postRequest();
-  }, [postRequest, todoList]);
+  // useEffect(async () => {
+  //   if (todoList.length > 0) await postRequest();
+  // }, [postRequest, todoList]);
 
   useEffect(() => {
     if (displayType === "completed") {

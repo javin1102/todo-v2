@@ -18,9 +18,9 @@ const Header = () => {
     dispatch(userAction.setThemeType({ theme: themeText }));
   };
 
-  useEffect(async () => {
-    if (todoList.length > 0) await postRequest();
-  }, [postRequest, todoList]);
+  // useEffect(async () => {
+  //   if (todoList.length > 0) await postRequest();
+  // }, [postRequest, todoList]);
   const themeImage = theme === "dark" ? sun : moon;
 
   return (

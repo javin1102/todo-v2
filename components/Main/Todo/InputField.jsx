@@ -23,9 +23,9 @@ const InputField = () => {
     }
   };
 
-  useEffect(async () => {
-    if (todoList.length > 0) await postRequest();
-  }, [postRequest, todoList]);
+  // useEffect(async () => {
+  //   if (todoList.length > 0) await postRequest();
+  // }, [postRequest, todoList]);
 
   const themeStyle =
     theme === "dark"

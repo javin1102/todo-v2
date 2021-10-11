@@ -15,12 +15,15 @@ const Main = () => {
   const { theme } = useSelector((state) => state.user);
   const loadingColor = theme === "dark" ? "#ffffff" : "#000000";
   const { sendRequest: getRequest } = useGetTodo();
+  const { sendRequest: postRequest } = usePostTodo();
 
   useEffect(async () => {
     await getRequest();
     firstLoad = false;
   }, []);
-
+  useEffect(async () => {
+    if (!firstLoad) await postRequest();
+  }, [postRequest]);
   return (
     <>
       {isLoading && firstLoad ? (

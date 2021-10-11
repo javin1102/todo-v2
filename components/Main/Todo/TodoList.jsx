@@ -17,9 +17,9 @@ const TodoList = (props) => {
     ? styles["d-block"]
     : styles["d-none"];
 
-  useEffect(async () => {
-    if (todoList.length > 0) await postRequest();
-  }, [postRequest, todoList]);
+  // useEffect(async () => {
+  //   if (todoList.length > 0) await postRequest();
+  // }, [postRequest, todoList]);
 
   const onClickHandler = async () => {
     dispatch(userAction.setHasCompletedList({ id: props.id }));
