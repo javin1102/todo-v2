@@ -28,7 +28,6 @@ const StateManager = () => {
 
   const deleteAllCompletedHandler = async () => {
     dispatch(userAction.removeAllCompleted());
-    await postRequest();
   };
 
   useEffect(() => {
@@ -38,6 +37,10 @@ const StateManager = () => {
   useEffect(() => {
     if (displayType === "all") setActiveNumber(todoList.length);
   }, [todoList]);
+
+  useEffect(async () => {
+    if (todoList.length > 0) await postRequest();
+  }, [postRequest, todoList]);
 
   useEffect(() => {
     if (displayType === "completed") {

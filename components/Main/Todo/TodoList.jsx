@@ -5,9 +5,10 @@ import cross from "../../../public/images/icon-cross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { userAction } from "../../../redux/user-slice";
 import { usePostTodo } from "../../../hooks/use-post-todo";
+import { useEffect } from "react";
 const TodoList = (props) => {
   const dispatch = useDispatch();
-  const { theme } = useSelector((state) => state.user);
+  const { theme, todoList } = useSelector((state) => state.user);
   const { sendRequest: postRequest } = usePostTodo();
 
   const completedListStyle = props.completed ? styles["check-circle-bg"] : "";
@@ -16,14 +17,16 @@ const TodoList = (props) => {
     ? styles["d-block"]
     : styles["d-none"];
 
+  useEffect(async () => {
+    if (todoList.length > 0) await postRequest();
+  }, [postRequest, todoList]);
+
   const onClickHandler = async () => {
     dispatch(userAction.setHasCompletedList({ id: props.id }));
-    await postRequest();
   };
 
   const onDeleteHandler = async () => {
     dispatch(userAction.removeTodoList({ id: props.id }));
-    await postRequest();
   };
 
   const themeStyle =

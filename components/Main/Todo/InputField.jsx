@@ -19,10 +19,13 @@ const InputField = () => {
         completed: false,
       };
       dispatch(userAction.addTodoList({ todo }));
-      await postRequest();
       setEnteredTodoText("");
     }
   };
+
+  useEffect(async () => {
+    if (todoList.length > 0) await postRequest();
+  }, [postRequest, todoList]);
 
   const themeStyle =
     theme === "dark"
