@@ -20,7 +20,7 @@ const Signin = () => {
       {!session && (
         <div
           className={styles["signin-box-container"]}
-          onClick={() => signIn("google")}
+          onClick={() => signIn()}
         >
           <Image src={google} layout="fixed" />
           <h3 className={styles.h3}>Sign in with google</h3>
