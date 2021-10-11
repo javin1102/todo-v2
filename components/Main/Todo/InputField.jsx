@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const InputField = () => {
   const [enteredTodoText, setEnteredTodoText] = useState("");
-  const { theme } = useSelector((state) => state.user);
+  const { theme, todoList } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const { sendRequest: postRequest } = usePostTodo();
 

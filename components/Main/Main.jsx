@@ -14,7 +14,6 @@ const Main = () => {
   const { isLoading } = useSelector((state) => state.message);
   const { theme } = useSelector((state) => state.user);
   const loadingColor = theme === "dark" ? "#ffffff" : "#000000";
-  const { sendRequest: postRequest } = usePostTodo();
   const { sendRequest: getRequest } = useGetTodo();
 
   useEffect(async () => {
