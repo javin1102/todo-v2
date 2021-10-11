@@ -18,9 +18,9 @@ const Main = () => {
   const { sendRequest: postRequest } = usePostTodo();
 
   useEffect(async () => {
-    await getRequest();
-    firstLoad = false;
-    await postRequest();
+    getRequest().then(() => {
+      firstLoad = false;
+    });
   }, []);
   useEffect(async () => {
     if (!firstLoad) await postRequest();

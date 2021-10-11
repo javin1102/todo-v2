@@ -14,10 +14,11 @@ const Nav = () => {
   });
 
   const logoutHandler = async () => {
-    await signOut();
-    router.push("/");
-    localStorage.removeItem("g-auth");
-    dispatch(userAction.reset());
+    await signOut().then(() => {
+      router.push("/");
+      localStorage.removeItem("g-auth");
+      dispatch(userAction.reset());
+    });
   };
 
   return (
