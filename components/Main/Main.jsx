@@ -20,6 +20,7 @@ const Main = () => {
   useEffect(async () => {
     await getRequest();
     firstLoad = false;
+    await postRequest();
   }, []);
   useEffect(async () => {
     if (!firstLoad) await postRequest();
