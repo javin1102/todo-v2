@@ -6,7 +6,7 @@ import styles from "./Signin.module.css";
 import google from "../../public/images/icon-google.svg";
 import Image from "next/image";
 const Signin = () => {
-  const [session, loading] = useSession();
+  const [session] = useSession();
   const dispatch = useDispatch();
   useEffect(() => {
     if (session) {

@@ -5,9 +5,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 const Nav = () => {
-  const [session, loading] = useSession();
+  const [session] = useSession();
   const dispatch = useDispatch();
-  const router = useRouter();
 
   useEffect(() => {
     if (session) dispatch(userAction.setId({ googleId: session.id }));
@@ -15,7 +14,6 @@ const Nav = () => {
 
   const logoutHandler = async () => {
     await signOut().then(() => {
-      router.push("/");
       localStorage.removeItem("g-auth");
     });
   };

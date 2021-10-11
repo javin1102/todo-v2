@@ -2,6 +2,7 @@ import Signin from "../components/Signin/Signin";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { getSession } from "next-auth/client";
 import Layout from "../components/Layout";
 export default function Home(props) {
   const router = useRouter();
@@ -18,3 +19,13 @@ export default function Home(props) {
     </>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const session = await getSession(context);
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
