@@ -1,7 +1,7 @@
 import styles from "./StateManager.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { userAction } from "../../../redux/user-slice";
-
+import { usePostTodo } from "../../../hooks/use-post-todo";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -20,14 +20,15 @@ const StateManager = () => {
   const { displayType, theme, todoList } = useSelector((state) => state.user);
   const [activeNumber, setActiveNumber] = useState();
   const dispatch = useDispatch();
-
+  const { sendRequest: postRequest } = usePostTodo();
   const onClickHandler = (value) => {
     dispatch(userAction.setDisplayType({ displayType: value }));
     addActiveStyle(value);
   };
 
-  const deleteAllCompletedHandler = () => {
+  const deleteAllCompletedHandler = async () => {
     dispatch(userAction.removeAllCompleted());
+    await postRequest();
   };
 
   useEffect(() => {

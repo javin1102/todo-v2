@@ -1,14 +1,16 @@
 import styles from "./Todo.module.css";
 import { userAction } from "../../../redux/user-slice";
 import { useDispatch, useSelector } from "react-redux";
+import { usePostTodo } from "../../../hooks/use-post-todo";
 import { useState } from "react";
 
 const InputField = () => {
   const [enteredTodoText, setEnteredTodoText] = useState("");
   const { theme } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const { sendRequest: postRequest } = usePostTodo();
 
-  const onEnterHandler = (e) => {
+  const onEnterHandler = async (e) => {
     if (enteredTodoText === "") return;
     if (e.key === "Enter") {
       const todo = {
@@ -17,6 +19,7 @@ const InputField = () => {
         completed: false,
       };
       dispatch(userAction.addTodoList({ todo }));
+      await postRequest();
       setEnteredTodoText("");
     }
   };

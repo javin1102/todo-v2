@@ -22,10 +22,6 @@ const Main = () => {
     firstLoad = false;
   }, []);
 
-  useEffect(() => {
-    if (!firstLoad) postRequest();
-  }, [postRequest]);
-
   return (
     <>
       {isLoading && firstLoad ? (

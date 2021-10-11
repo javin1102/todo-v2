@@ -5,14 +5,16 @@ import Image from "next/image";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useSelector, useDispatch } from "react-redux";
 import { userAction } from "../../../redux/user-slice";
+import { usePostTodo } from "../../../hooks/use-post-todo";
 const Header = () => {
   const { isLoading } = useSelector((state) => state.message);
   const { theme } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
-  const themeHandler = () => {
+  const { sendRequest: postRequest } = usePostTodo();
+  const themeHandler = async () => {
     const themeText = theme === "dark" ? "light" : "dark";
     dispatch(userAction.setThemeType({ theme: themeText }));
+    await postRequest();
   };
 
   const themeImage = theme === "dark" ? sun : moon;

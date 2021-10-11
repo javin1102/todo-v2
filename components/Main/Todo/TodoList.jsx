@@ -4,9 +4,11 @@ import check from "../../../public/images/icon-check.svg";
 import cross from "../../../public/images/icon-cross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { userAction } from "../../../redux/user-slice";
+import { usePostTodo } from "../../../hooks/use-post-todo";
 const TodoList = (props) => {
   const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.user);
+  const { sendRequest: postRequest } = usePostTodo();
 
   const completedListStyle = props.completed ? styles["check-circle-bg"] : "";
 
@@ -18,8 +20,9 @@ const TodoList = (props) => {
     dispatch(userAction.setHasCompletedList({ id: props.id }));
   };
 
-  const onDeleteHandler = () => {
+  const onDeleteHandler = async () => {
     dispatch(userAction.removeTodoList({ id: props.id }));
+    await postRequest();
   };
 
   const themeStyle =
