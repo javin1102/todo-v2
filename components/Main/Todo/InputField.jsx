@@ -2,7 +2,7 @@ import styles from "./Todo.module.css";
 import { userAction } from "../../../redux/user-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { usePostTodo } from "../../../hooks/use-post-todo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const InputField = () => {
   const [enteredTodoText, setEnteredTodoText] = useState("");
