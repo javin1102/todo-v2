@@ -17,4 +17,3 @@ This app has following Feature :
 - Authentication with google OAuth
 - Sync state with database
 
-**Have fun building!** 🚀
