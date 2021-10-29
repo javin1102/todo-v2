@@ -4,7 +4,7 @@
 This is todo list app built with :
 - Nextjs
 - MongoDB
-- Redux / Redux-toolkit
+- Redux / Redux-toolkit for user state (including user's todo, theme, etc), loading state, message
 - NextAuth
 
 This app has following Feature : 
