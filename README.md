@@ -1,6 +1,8 @@
 # Frontend Mentor - Todo app
 
 ## Welcome! 👋
+![image](https://user-images.githubusercontent.com/61945507/143535344-ac03cb0d-784e-460d-941b-42a61cf45770.png)
+
 This is todo list app built with :
 - Nextjs
 - MongoDB
